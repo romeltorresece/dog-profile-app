@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { getDogs, createDog, updateDog, deleteDog } = require('../controllers/dogController');
+const { getDogs, showDog, createDog, updateDog, deleteDog } = require('../controllers/dogController');
+const { validateDog, isLoggedIn, isAuthor } = require('../middleware');
 
 router.route('/')
     .get(getDogs)
-    .post(createDog);
+    .post(isLoggedIn, validateDog, createDog);
 
 router.route('/:id')
-    .put(updateDog)
-    .delete(deleteDog);
+    .get(showDog)
+    .put(isLoggedIn, isAuthor, validateDog, updateDog)
+    .delete(isLoggedIn, isAuthor, deleteDog);
 
 module.exports = router;

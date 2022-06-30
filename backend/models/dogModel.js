@@ -10,7 +10,11 @@ const dogSchema = new Schema({
     age: Number,
     breed: String,
     location: String,
-    description: String
+    description: String,
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 }, opts);
 
 const Dog = mongoose.model('Dog', dogSchema);
