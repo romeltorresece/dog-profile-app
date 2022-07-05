@@ -1,6 +1,6 @@
 function DogProfile() {
   return (
-    <div>DogProfile</div>
+    <div className='container'>DogProfile</div>
   );
 }
 

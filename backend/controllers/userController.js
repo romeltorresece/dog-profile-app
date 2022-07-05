@@ -44,7 +44,19 @@ const loginUser = asyncHandler(async (req, res, next) => {
     });
 });
 
+// @desc    Logout User
+// @route   POST /api/users/logout
+// @access  Public 
+const logoutUser = (req, res) => {
+    req.logout();
+    res.status(200).json({
+        message: 'Logout Successful!',
+    });
+};
+
+
 module.exports = {
     registerUser,
     loginUser,
+    logoutUser,
 };

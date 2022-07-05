@@ -4,6 +4,8 @@ import DogsIndex from './pages/DogsIndex';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Navbar from './components/Navbar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Route path='/dogs/:id' element={<DogProfile />} />
         </Routes>
       </Router>
+      <ToastContainer />
     </>
   );
 }

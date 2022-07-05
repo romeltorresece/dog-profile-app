@@ -1,6 +1,6 @@
 function DogsIndex() {
   return (
-    <div>DogsIndex</div>
+    <div className='container'>DogsIndex</div>
   );
 }
 
