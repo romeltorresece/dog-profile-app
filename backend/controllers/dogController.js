@@ -14,9 +14,9 @@ const getDogs = asyncHandler(async (req, res) => {
 // @route   GET /api/dogs/:id
 // @access  Public 
 const showDog = asyncHandler(async (req, res) => {
-    const dog = await Dog.findById(req.params.id);
+    const dog = await Dog.findById(req.params.id).populate('author');
     if (!dog) throw new ExpressError('Dog Profile Not Found', 404);
-
+    
     res.status(200).json(dog);
 });
 
@@ -35,7 +35,7 @@ const createDog = asyncHandler(async (req, res) => {
 // @access  Private
 const updateDog = asyncHandler(async (req, res) => {
     const config = { new: true, runValidators: true };
-    const updatedDog = await Dog.findByIdAndUpdate(req.params.id, req.body, config);
+    const updatedDog = await Dog.findByIdAndUpdate(req.params.id, req.body, config).populate('author');
     res.status(200).json(updatedDog);
 });
 

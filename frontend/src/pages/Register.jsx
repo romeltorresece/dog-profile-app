@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { register, reset } from '../features/auth/authSlice';
 import { toast } from 'react-toastify';
+import Loading from '../components/Loading';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -56,7 +57,7 @@ function Register() {
   };
 
   if (isLoading) {
-    
+    return <Loading />;
   }
 
   return (

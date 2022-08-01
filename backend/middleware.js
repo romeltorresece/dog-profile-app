@@ -4,6 +4,7 @@ const Dog = require('./models/dogModel');
 const asyncHandler = require('./utils/asyncHandler');
 
 const isLoggedIn = (req, res, next) => {
+    // console.log(req.isAuthenticated());
     if (!req.isAuthenticated()) {
         throw new ExpressError('Not Authorized', 401);
     }

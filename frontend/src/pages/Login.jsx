@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login, reset } from '../features/auth/authSlice';
 import { toast } from 'react-toastify';
+import Loading from '../components/Loading';
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -50,7 +51,7 @@ function Login() {
   };
 
   if (isLoading) {
-    return <h1 className='text-4xl text-center'>Loading...</h1>
+    return <Loading />;
   }
 
   return (
